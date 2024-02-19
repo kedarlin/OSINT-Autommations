@@ -1,0 +1,73 @@
+
+
+
+.settings {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20x;
+    background-color:grey;
+    color: #ffffff;
+  }
+  
+  .settings-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .settings-buttons button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: #34495e;
+    color: #ffffff;
+  }
+  
+  .settings-buttons button:hover {
+    background-color: #ffffff;
+    color: #282c34;
+  }
+  
+  .settings-buttons button:active {
+    background-color: #e0e0e0;
+    color: #282c34;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  
+  .settings-storage {
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .settings-storage h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  
+  .settings-storage a {
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  .settings-storage a:hover {
+    background-color: #ffffff;
+    color: #282c34;
+  }
+  
+  .settings-storage a:active {
+    background-color: #e0e0e0;
+    color: #282c34;
+  }
+  #only{
+    background-color: #8B0000;
+  }

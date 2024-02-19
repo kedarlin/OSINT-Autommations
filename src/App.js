@@ -13,8 +13,8 @@ const App = () => {
       <div>
         <Routes>
           <Route path='/newscan' element={<NewScan />} />
-          {/* <Route path='/scanned' element={<Scanned />} /> */}
-          <Route path='/settings' element={<Settings />} />
+          {/*= <Route path='/scanned' element={<Scanned />} /> */}
+          <Route path='/Settings' element={<Settings />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
