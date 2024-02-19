@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NewScan.css';
 import Header from '../../Components/Header/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,8 +6,11 @@ import { faFileCircleQuestion, faQuestion, faQuestionCircle } from '@fortawesome
 
 
 const NewScan = () => {
+    const [configureState, setConfigureState] = useState('use-case');
 
-
+    const handleConfigureClick = (state) => {
+        setConfigureState(state);
+    };
 
     return (
         <div className='newscan-container'>
@@ -50,12 +53,38 @@ const NewScan = () => {
                 </div>
                 <div className='newscan-configure-box'>
                     <div className='newscan-configure-navbar'>
-                        <div className='newscan-configure-item'>By Use Case</div>
-                        <div className='newscan-configure-item'>By Required Data</div>
-                        <div className='newscan-configure-item'>By Modules</div>
+                        <div
+                            className={`newscan-configure-item ${configureState === 'use-case' ? 'active' : ''}`}
+                            onClick={() => handleConfigureClick('use-case')}
+                        >
+                            By Use Case
+                        </div>
+                        <div
+                            className={`newscan-configure-item ${configureState === 'req-data' ? 'active' : ''}`}
+                            onClick={() => handleConfigureClick('req-data')}
+                        >
+                            By Required Data
+                        </div>
+                        <div
+                            className={`newscan-configure-item ${configureState === 'modules' ? 'active' : ''}`}
+                            onClick={() => handleConfigureClick('modules')}
+                        >
+                            By Modules
+                        </div>
                     </div>
                     <div className='newscan-configure-container'>
-                        kedar
+                        {configureState === 'use-case' && (
+                            // Render content for 'By Use Case'
+                            <div>kedar</div>
+                        )}
+                        {configureState === 'req-data' && (
+                            // Render content for 'By Required Data'
+                            <div>Content for By Required Data</div>
+                        )}
+                        {configureState === 'modules' && (
+                            // Render content for 'By Modules'
+                            <div>Content for By Modules</div>
+                        )}
                     </div>
                 </div>
             </div>
