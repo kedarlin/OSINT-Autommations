@@ -7,25 +7,30 @@ const Settings = () => {
 
   return (
     <div className="settings">
-        <Header />
-      <h1 className="settings-title">Settings</h1>
-      <div className="settings-buttons">
-        <button className="settings-button">Save Changes</button>
-        <button className="settings-button">Import API Keys</button>
-        <button className="settings-button">Export API Keys</button>
-        <button id="only" className="settings-button">Reset to Factory Default</button>
-      </div>
-      <div className="settings-storage">
-        <div className="settings-button-item"><a href="#" className="settings-button">AbstractAPI</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">abuse.ch</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">AbuseIPDB</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">Abusix Mail Intelligence</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">Account Finder</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">AdBlock Check</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">Ahmia</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">AlienVault OTX</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">AlienVault IP Reputation</a></div>
-        <div className="settings-button-item"><a href="#" className="settings-button">Archive.org</a></div>
+      <Header />
+      <div className="settings-container">
+        <div className="settings-title">Settings</div>
+        <div className="settings-buttons">
+          <div className="settings-button-save" onClick={() => { }}>Save Changes</div>
+          <div className="settings-button-import" onClick={() => { }}>Import API Keys</div>
+          <div className="settings-button-export" onClick={() => { }}>Export API Keys</div>
+          <div className="settings-button-reset" onClick={() => { }}>Reset to Factory Default</div>
+        </div>
+        <div className="settings-api-box">
+          <div className="settings-storage">
+            <div className="settings-button-item">AbstractAPI</div>
+            <div className="settings-button-item">abuse.ch</div>
+            <div className="settings-button-item">AbuseIPDB</div>
+            <div className="settings-button-item">Abusix Mail Intelligence</div>
+            <div className="settings-button-item">Account Finder</div>
+            <div className="settings-button-item">AdBlock Check</div>
+            <div className="settings-button-item">Ahmia</div>
+            <div className="settings-button-item">AlienVault OTX</div>
+            <div className="settings-button-item">AlienVault IP Reputation</div>
+            <div className="settings-button-item">Archive.org</div>
+          </div>
+          <div className="settings-storage-content">hola</div>
+        </div>
       </div>
     </div>
   );
