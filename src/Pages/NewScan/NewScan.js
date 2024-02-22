@@ -96,7 +96,6 @@ const NewScan = () => {
                 <div className='newscan-inputs'>
                     <div className='newscan-input-name'>
                         <label className='newscan-input-label'>Scan Name</label>
-                        <br />
                         <input
                             className='newscan-input'
                             name='scanName'
@@ -104,9 +103,7 @@ const NewScan = () => {
                             placeholder='The name of the scan'
                             value={scanName}
                             onChange={(e) => setScanName(e.target.value)} />
-                        <br />
                         <label className='newscan-input-label'>Scan Target</label>
-                        <br />
                         <input
                             className='newscan-input'
                             name='scanName'
@@ -123,7 +120,7 @@ const NewScan = () => {
                             Your scan target may be one of the following We will automatically detect the target type based on the format of your input:
                         </div>
                         <div className='tables-container'>
-                            <div className='table'>
+                            <div className='newscan-table'>
                                 <p><b>Domain Name:</b> e.g. example.com</p>
                                 <p><b>IPv4 Address:</b> e.g. 1.2.3.4</p>
                                 <p><b>IPv6 Address:</b> e.g. 2606:4700:4700:1111</p>
@@ -131,7 +128,7 @@ const NewScan = () => {
                                 <p><b>Subnet:</b> e.g. 1.2.3.0/24</p>
                                 <p><b>Bitcoin Address:</b> e.g. 1HesYJSP1QqcyPEjnQ9vzBL1wujruNGe7R</p>
                             </div>
-                            <div className='table'>
+                            <div className='newscan-table'>
                                 <p><b>E-Mail address:</b> e.g. bob@example.com</p>
                                 <p><b>Phone Number:</b> e.g. +12345678901 (E.164 format)</p>
                                 <p><b>Human Name:</b> e.g. "John Smith" (must be in quotes)</p>

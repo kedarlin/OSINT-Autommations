@@ -62,6 +62,10 @@ const Scanned = () => {
                             <option value='aborted'> Aborted </option>
                         </select>
                     </div>
+                    <div className='scanned-other-oper'>
+                        kedar
+                        {/* <add buttons for rescan and others> */}
+                    </div>
                 </div>
 
                 <table className='results'>
