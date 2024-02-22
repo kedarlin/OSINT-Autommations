@@ -41,6 +41,7 @@
     border-color: rgba(3, 158, 255, 0.705);
     box-shadow: 0 0 10px rgba(3, 158, 255, 0.705);
 }
+
 .newscan-scan-button {
     background-color: rgb(208, 26, 63);
     cursor: pointer;
@@ -51,9 +52,12 @@
     color: white;
     font-weight: 550;
 }
+
 .newscan-scan-button:hover {
-    background-color: rgb(255, 39, 82);;
+    background-color: rgb(255, 39, 82);
+    ;
 }
+
 .newscan-format-box {
     margin-left: 50px;
     background-color: #f7f7f7;
@@ -81,6 +85,8 @@
 
 .table p {
     font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .table b {
@@ -102,23 +108,69 @@
     padding: 10px;
     cursor: pointer;
     border-radius: 5px 5px 0 0;
+    margin-right: 10px;
+    color: #397fbb;
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.newscan-configure-item:hover{
+.newscan-configure-item:hover {
     background-color: #f7f7f78f;
 }
+
 .newscan-configure-item.active {
     background-color: #f7f7f78f;
     border: #ccc solid 1px;
     border-bottom: none;
+    color: #000;
 }
 
 .newscan-configure-container {
-    height: 200px;
     background-color: #f7f7f78f;
     border: #ccc solid 1px;
-    padding: 20px;
+    padding: 30px 0px 40px 20px;
 }
-.scan-usecase-checkname {
+.config-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.config-buttons-container {
+    display: flex;
+    flex-direction: row;
+}
+.config-button {
+    color: white;
+    background-color: chocolate;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.config-button:hover {
+    background-color: rgb(218, 132, 71);
+}
+.scan-usecase-checkname,
+.scan-modules-checkname {
+    font-weight: 450;
     margin-left: 20px;
+}
+.use-case-options,
+.modules-options {
+    margin-top: 20px;
+}
+.scan-configure-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 40%;
+}
+
+.scan-req-data-desc,
+.scan-modules-desc {
+    font-size: 14px;
+    font-weight: 450;
+    color: #8e4501;
 }

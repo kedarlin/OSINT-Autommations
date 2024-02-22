@@ -8,8 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const NewScan = () => {
-    const [configureState, setConfigureState] = useState('use-case');
-    const [selectedUseCases, setSelectedUseCases] = useState([]);
+    const [configureState, setConfigureState] = useState('req-data');
+    const [selectedReqData, setSelectedReqData] = useState([]);
+    const [selectedModules, setSelectedModules] = useState([]);
     const handleConfigureClick = (state) => {
         setConfigureState(state);
     };
@@ -18,36 +19,67 @@ const NewScan = () => {
     const navigate = useNavigate();
 
 
-    const useCases = [
-        { id: 'newsArticles', label: 'News Articles' },
-        { id: 'googleSearch', label: 'Google Search' },
-        { id: 'googleDorks', label: 'Google Dorks' },
-        { id: 'darkWebSearch', label: 'DarkWeb Search' },
-    ];
+    // const useCases = [
+    //     { id: 'newsArticles', label: 'News Articles' },
+    //     { id: 'googleSearch', label: 'Google Search' },
+    //     { id: 'googleDorks', label: 'Google Dorks' },
+    //     { id: 'darkWebSearch', label: 'DarkWeb Search' },
+    // ];
     const reqData = [
-        { id: 'newsArticles', label: 'News Articles' },
-        { id: 'googleSearch', label: 'Google Search' },
-        { id: 'googleDorks', label: 'Google Dorks' },
-        { id: 'darkWebSearch', label: 'DarkWeb Search' },
+        { id: 'ipAddress', label: 'IP Address', desc: 'Unique IP address on the internet.' },
+        { id: 'physicalAddress', label: 'Physical Address', desc: 'Location/Address identifying the last usage on the internet' },
+        { id: 'teleCommunications', label: 'Telecommunications', desc: 'Information related to communication systems.' },
+        { id: 'hostingProvider', label: 'Hosting Provider', desc: 'Details about the company hosting a website.' },
+        { id: 'hackedEmailAddress', label: 'Hacked Email Address', desc: 'Email addresses compromised in security breaches.' },
+        { id: 'accountsOnExternalSite', label: 'Accounts on External Site', desc: 'User accounts associated with external websites.' },
     ];
+
     const modules = [
-        { id: 'newsArticles', label: 'News Articles' },
-        { id: 'googleSearch', label: 'Google Search' },
-        { id: 'googleDorks', label: 'Google Dorks' },
-        { id: 'darkWebSearch', label: 'DarkWeb Search' },
+        { id: 'darkWebSearch', label: 'DarkWeb Search', desc: 'Explore content available on the dark web.' },
+        { id: 'socialMediaAnalyzer', label: 'Social Media Analyzer', desc: 'Analyze social media platforms for relevant information.' },
+        { id: 'metaDataAnalyzer', label: 'Meta Data Analyzer', desc: 'Examine metadata for insights into digital content.' },
+        { id: 'googleDorks', label: 'Google Dorking', desc: 'Perform advanced Google searches for security testing.' },
+        { id: 'spiderFoot', label: 'SpiderFoot', desc: 'Conduct open-source intelligence (OSINT) on various sources.' },
+        { id: 'newsGathering', label: 'News Gathering', desc: 'Collect recent news articles from various sources.' },
     ];
-    const handleUseCaseToggle = (useCaseId) => {
-        setSelectedUseCases((prevSelectedUseCases) => {
-            if (prevSelectedUseCases.includes(useCaseId)) {
-                return prevSelectedUseCases.filter((id) => id !== useCaseId);
+    const handleReqDataToggle = (reqDataId) => {
+        setSelectedReqData((prevSelectedReqData) => {
+            if (prevSelectedReqData.includes(reqDataId)) {
+                return prevSelectedReqData.filter((id) => id !== reqDataId);
             } else {
-                return [...prevSelectedUseCases, useCaseId];
+                return [...prevSelectedReqData, reqDataId];
             }
         });
     };
+    const handleModulesToggle = (modulesId) => {
+        setSelectedModules((prevSelectedModules) => {
+            if (prevSelectedModules.includes(modulesId)) {
+                return prevSelectedModules.filter((id) => id !== modulesId);
+            } else {
+                return [...prevSelectedModules, modulesId];
+            }
+        });
+    };
+    const handleSelectAll = (dataIds) => {
+        if (configureState === 'req-data') {
+            setSelectedReqData(dataIds);
+        } else if (configureState === 'modules') {
+            setSelectedModules(dataIds);
+        }
+    };
+
+    const handleDeselectAll = (dataIds) => {
+        if (configureState === 'req-data') {
+            setSelectedReqData([]);
+        } else if (configureState === 'modules') {
+            setSelectedModules([]);
+        }
+    };
     const handleScanClick = () => {
         console.log('Selected Configure State:', configureState);
-        console.log('Selected Use Cases:', selectedUseCases);
+        console.log('Selected Use Cases:', selectedReqData);
+        console.log('Selected Configure State:', configureState);
+        console.log('Selected Use Cases:', selectedModules);
         if (!scanName.trim()) {
             toast.error("please enter the name of scan");
             return;
@@ -56,6 +88,12 @@ const NewScan = () => {
             toast.error("please enter scan target");
             return;
         }
+        setConfigureState('req-data');
+        setScanName('');
+        setScanTarget('');
+        setSelectedReqData('');
+        setSelectedModules('')
+        navigate('/scanned')
     }
     return (
         <div className='newscan-container'>
@@ -113,12 +151,12 @@ const NewScan = () => {
                 </div>
                 <div className='newscan-configure-box'>
                     <div className='newscan-configure-navbar'>
-                        <div
+                        {/* <div
                             className={`newscan-configure-item ${configureState === 'use-case' ? 'active' : ''}`}
                             onClick={() => handleConfigureClick('use-case')}
                         >
                             By Use Case
-                        </div>
+                        </div> */}
                         <div
                             className={`newscan-configure-item ${configureState === 'req-data' ? 'active' : ''}`}
                             onClick={() => handleConfigureClick('req-data')}
@@ -133,7 +171,7 @@ const NewScan = () => {
                         </div>
                     </div>
                     <div className='newscan-configure-container'>
-                        {configureState === 'use-case' && (
+                        {/* {configureState === 'use-case' && (
                             <div className='use-case-configuration'>
                                 <h3>Select Use Cases:</h3>
                                 <div className='use-case-options'>
@@ -150,14 +188,68 @@ const NewScan = () => {
                                     ))}
                                 </div>
                             </div>
-                        )}
+                        )} */}
                         {configureState === 'req-data' && (
-                            // Render content for 'By Required Data'
-                            <div>Content for By Required Data</div>
+                            <div className='use-case-configuration'>
+                                <div className='config-header'>
+                                    <h3>Select Required Data</h3>
+                                    <div className='config-buttons-container'>
+                                        <div className='config-button' onClick={() => handleSelectAll(reqData.map(item => item.id))}>Select All</div>
+                                        <div className='config-button' onClick={() => handleDeselectAll(reqData.map(item => item.id))}>Deselect All</div>
+                                    </div>
+                                </div>
+                                <div className='use-case-options'>
+                                    {reqData.map((reqDataItem) => (
+                                        <div style={{ display: "Flex", flexDirection: "row", marginBottom: "10px" }}>
+                                            <div key={reqDataItem.id} className='scan-configure-option'>
+                                                <input
+                                                    type='checkbox'
+                                                    id={reqDataItem.id}
+                                                    checked={selectedReqData.includes(reqDataItem.id)}
+                                                    onChange={() => handleReqDataToggle(reqDataItem.id)}
+                                                />
+                                                <label htmlFor={reqDataItem.id} className='scan-usecase-checkname'>
+                                                    {reqDataItem.label}
+                                                </label>
+                                            </div>
+                                            <div className='scan-desc-container'>
+                                                <p className='scan-req-data-desc'>{reqDataItem.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         )}
                         {configureState === 'modules' && (
-                            // Render content for 'By Modules'
-                            <div>Content for By Modules</div>
+                            <div className='scan-modules-configuration'>
+                                <div className='config-header'>
+                                    <h3>Select Required Data</h3>
+                                    <div className='config-buttons-container'>
+                                        <div className='config-button' onClick={() => handleSelectAll(modules.map(item => item.id))}>Select All</div>
+                                        <div className='config-button' onClick={() => handleDeselectAll(modules.map(item => item.id))}>Deselect All</div>
+                                    </div>
+                                </div>
+                                <div className='modules-options'>
+                                    {modules.map((modulesItem) => (
+                                        <div style={{ display: "Flex", flexDirection: "row", marginBottom: "10px" }}>
+                                            <div key={modulesItem.id} className='scan-configure-option'>
+                                                <input
+                                                    type='checkbox'
+                                                    id={modulesItem.id}
+                                                    checked={selectedModules.includes(modulesItem.id)}
+                                                    onChange={() => handleModulesToggle(modulesItem.id)}
+                                                />
+                                                <label htmlFor={modulesItem.id} className='scan-modules-checkname'>
+                                                    {modulesItem.label}
+                                                </label>
+                                            </div>
+                                            <div className='scan-desc-container'>
+                                                <p className='scan-modules-desc'>{modulesItem.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         )}
                     </div>
                 </div>
