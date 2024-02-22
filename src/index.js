@@ -13,7 +13,7 @@ const firebaseConfig = {
   projectId: "elk-dashboard-f6454",
   storageBucket: "elk-dashboard-f6454.appspot.com",
   messagingSenderId: "386017966848",
-  appId: "1:386017966848:web:4c0b4d347b2a14242611e5"
+  appId: "1:386017966848:web:dd3f66334c5d0ea12611e5"
 };
 
 // Initialize Firebase
@@ -40,3 +40,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+export { app }

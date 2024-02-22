@@ -17,14 +17,6 @@ const NewScan = () => {
     const [scanName, setScanName] = useState('');
     const [scanTarget, setScanTarget] = useState('');
     const navigate = useNavigate();
-
-
-    // const useCases = [
-    //     { id: 'newsArticles', label: 'News Articles' },
-    //     { id: 'googleSearch', label: 'Google Search' },
-    //     { id: 'googleDorks', label: 'Google Dorks' },
-    //     { id: 'darkWebSearch', label: 'DarkWeb Search' },
-    // ];
     const reqData = [
         { id: 'ipAddress', label: 'IP Address', desc: 'Unique IP address on the internet.' },
         { id: 'physicalAddress', label: 'Physical Address', desc: 'Location/Address identifying the last usage on the internet' },
