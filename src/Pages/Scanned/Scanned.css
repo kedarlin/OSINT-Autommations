@@ -10,11 +10,16 @@
 }
 .scanned-filter {
     margin-bottom: 30px;
+    padding: 5px 10px;
+    border: 1px solid #9b9a9a;
+    width: fit-content;
 }
-.filter {
-    margin-bottom: 20px;
-    padding: 10px;
+.filter-options {
+    border: none;
+    background-color: #dce5fd;
+    padding-right: 25px;
 }
+
 .results{
     padding-top: 50px;
 }

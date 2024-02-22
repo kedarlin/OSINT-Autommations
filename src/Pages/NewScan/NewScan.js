@@ -201,7 +201,11 @@ const NewScan = () => {
                                 <div className='use-case-options'>
                                     {reqData.map((reqDataItem) => (
                                         <div style={{ display: "Flex", flexDirection: "row", marginBottom: "10px" }}>
-                                            <div key={reqDataItem.id} className='scan-configure-option'>
+                                            <div key={reqDataItem.id} className='scan-configure-option'
+                                                id={reqDataItem.id}
+                                                checked={selectedReqData.includes(reqDataItem.id)}
+                                                onClick={() => handleReqDataToggle(reqDataItem.id)}
+                                            >
                                                 <input
                                                     type='checkbox'
                                                     id={reqDataItem.id}
@@ -232,7 +236,11 @@ const NewScan = () => {
                                 <div className='modules-options'>
                                     {modules.map((modulesItem) => (
                                         <div style={{ display: "Flex", flexDirection: "row", marginBottom: "10px" }}>
-                                            <div key={modulesItem.id} className='scan-configure-option'>
+                                            <div key={modulesItem.id} className='scan-configure-option'
+                                                id={modulesItem.id}
+                                                checked={selectedModules.includes(modulesItem.id)}
+                                                onClick={() => handleModulesToggle(modulesItem.id)}
+                                            >
                                                 <input
                                                     type='checkbox'
                                                     id={modulesItem.id}

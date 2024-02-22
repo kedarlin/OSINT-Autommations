@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Scanned.css';
 import Header from '../../Components/Header/Header';
+import { Icons } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 
 const Scanned = () => {
@@ -26,13 +29,17 @@ const Scanned = () => {
             <Header />
             <div className='scanned-container'>
                 <div className='scanned-title'>Scan</div>
-                <div className='scanned-filter'>
-                    <select name="filter">
-                        <option value='None'> None </option>
-                        <option value='running'> Running  </option>
-                        <option value='finished'> Finished </option>
-                        <option value> Aborted </option>
-                    </select>
+                <div className='filter-container'>
+                    <div className='scanned-filter'>
+                        <FontAwesomeIcon icon={faFilter} style={{marginRight : '5px'}} />
+                        <label>Filter : </label>
+                        <select name="filter" className='filter-options'>
+                            <option value='None'> None </option>
+                            <option value='running'> Running  </option>
+                            <option value='finished'> Finished </option>
+                            <option value='aborted'> Aborted </option>
+                        </select>
+                    </div>
                 </div>
                 <table className='results'>
                     <tr>
