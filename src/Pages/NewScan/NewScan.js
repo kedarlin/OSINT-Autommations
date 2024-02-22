@@ -2,18 +2,64 @@ import React, { useState } from 'react'
 import './NewScan.css';
 import Header from '../../Components/Header/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileCircleQuestion, faQuestion, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NewScan = () => {
     const [configureState, setConfigureState] = useState('use-case');
-
+    const [selectedUseCases, setSelectedUseCases] = useState([]);
     const handleConfigureClick = (state) => {
         setConfigureState(state);
     };
+    const [scanName, setScanName] = useState('');
+    const [scanTarget, setScanTarget] = useState('');
+    const navigate = useNavigate();
 
+
+    const useCases = [
+        { id: 'newsArticles', label: 'News Articles' },
+        { id: 'googleSearch', label: 'Google Search' },
+        { id: 'googleDorks', label: 'Google Dorks' },
+        { id: 'darkWebSearch', label: 'DarkWeb Search' },
+    ];
+    const reqData = [
+        { id: 'newsArticles', label: 'News Articles' },
+        { id: 'googleSearch', label: 'Google Search' },
+        { id: 'googleDorks', label: 'Google Dorks' },
+        { id: 'darkWebSearch', label: 'DarkWeb Search' },
+    ];
+    const modules = [
+        { id: 'newsArticles', label: 'News Articles' },
+        { id: 'googleSearch', label: 'Google Search' },
+        { id: 'googleDorks', label: 'Google Dorks' },
+        { id: 'darkWebSearch', label: 'DarkWeb Search' },
+    ];
+    const handleUseCaseToggle = (useCaseId) => {
+        setSelectedUseCases((prevSelectedUseCases) => {
+            if (prevSelectedUseCases.includes(useCaseId)) {
+                return prevSelectedUseCases.filter((id) => id !== useCaseId);
+            } else {
+                return [...prevSelectedUseCases, useCaseId];
+            }
+        });
+    };
+    const handleScanClick = () => {
+        console.log('Selected Configure State:', configureState);
+        console.log('Selected Use Cases:', selectedUseCases);
+        if (!scanName.trim()) {
+            toast.error("please enter the name of scan");
+            return;
+        }
+        if (!scanTarget.trim()) {
+            toast.error("please enter scan target");
+            return;
+        }
+    }
     return (
         <div className='newscan-container'>
+            <ToastContainer />
             <Header />
             <div className='newscan-box'>
                 <div className='newscan-title'>New Scan</div>
@@ -21,11 +67,25 @@ const NewScan = () => {
                     <div className='newscan-input-name'>
                         <label className='newscan-input-label'>Scan Name</label>
                         <br />
-                        <input className='newscan-input' name='scanName' type='text' placeholder='The name of the scan' />
+                        <input
+                            className='newscan-input'
+                            name='scanName'
+                            type='text'
+                            placeholder='The name of the scan'
+                            value={scanName}
+                            onChange={(e) => setScanName(e.target.value)} />
                         <br />
                         <label className='newscan-input-label'>Scan Target</label>
                         <br />
-                        <input className='newscan-input' name='scanName' type='text' placeholder='The name of the scan' />
+                        <input
+                            className='newscan-input'
+                            name='scanName'
+                            type='text'
+                            placeholder='The name of the scan'
+                            value={scanTarget}
+                            onChange={(e) => setScanTarget(e.target.value)} />
+
+                        <div className='newscan-scan-button' onClick={handleScanClick}>Start Scan</div>
                     </div>
                     <div className='newscan-format-box'>
                         <div className='newscan-format-desc'>
@@ -74,8 +134,22 @@ const NewScan = () => {
                     </div>
                     <div className='newscan-configure-container'>
                         {configureState === 'use-case' && (
-                            // Render content for 'By Use Case'
-                            <div>kedar</div>
+                            <div className='use-case-configuration'>
+                                <h3>Select Use Cases:</h3>
+                                <div className='use-case-options'>
+                                    {useCases.map((useCase) => (
+                                        <div key={useCase.id} className='use-case-option'>
+                                            <input
+                                                type='checkbox'
+                                                id={useCase.id}
+                                                checked={selectedUseCases.includes(useCase.id)}
+                                                onChange={() => handleUseCaseToggle(useCase.id)}
+                                            />
+                                            <label htmlFor={useCase.id} className='scan-usecase-checkname'>{useCase.label}</label>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         )}
                         {configureState === 'req-data' && (
                             // Render content for 'By Required Data'

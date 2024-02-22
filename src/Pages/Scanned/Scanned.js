@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Scanned.css';
 import Header from '../../Components/Header/Header';
 
 
 const Scanned = () => {
+
+    const [jsonData, setJsonData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/');
+                setJsonData(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return (
         <div className='scanned'>
@@ -58,6 +74,10 @@ const Scanned = () => {
                         <td></td>
                     </tr>
                 </table>
+                <div>
+                    {/* Display your JSON data in a pre tag for proper indentation */}
+                    <pre>{JSON.stringify(jsonData, null, 2)}</pre>
+                </div>
             </div>
         </div>
     )

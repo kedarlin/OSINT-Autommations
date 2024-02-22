@@ -41,7 +41,19 @@
     border-color: rgba(3, 158, 255, 0.705);
     box-shadow: 0 0 10px rgba(3, 158, 255, 0.705);
 }
-
+.newscan-scan-button {
+    background-color: rgb(208, 26, 63);
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 30px 0 0 20px;
+    width: fit-content;
+    border-radius: 10px;
+    color: white;
+    font-weight: 550;
+}
+.newscan-scan-button:hover {
+    background-color: rgb(255, 39, 82);;
+}
 .newscan-format-box {
     margin-left: 50px;
     background-color: #f7f7f7;
@@ -106,4 +118,7 @@
     background-color: #f7f7f78f;
     border: #ccc solid 1px;
     padding: 20px;
+}
+.scan-usecase-checkname {
+    margin-left: 20px;
 }

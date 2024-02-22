@@ -25,6 +25,7 @@ header {
     font-size: 27px;
     font-weight: 600;
     color: rgb(47, 141, 70);
+    cursor: pointer;
 }
 
 .navbar-items-container {

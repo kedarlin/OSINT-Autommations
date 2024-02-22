@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 function Header() {
 
   const navigate = useNavigate();
+  const handleHomeNav = () => {
+    navigate('/dashboard');
+  }
   const handleNewScan = () => {
     navigate('/newscan');
   }
@@ -21,7 +24,7 @@ function Header() {
     <header>
       <div className='navbar-rightcontent'>
         <div className="navbar-logosec">
-          <div className="navbar-logo">OSINTika</div>
+          <div className="navbar-logo" onClick={handleHomeNav}>OSINTika</div>
         </div>
         <div className="navbar-items-container">
           <div className='navbar-item' onClick={handleNewScan}>
