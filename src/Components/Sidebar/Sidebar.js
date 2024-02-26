@@ -9,30 +9,25 @@ function Sidebar() {
   const location = useLocation();
   const [activePage, setActivePage] = useState(location.pathname);
 
+  // Function to check if a given path is part of the current active page
+  const isPartOfActivePage = (path) => activePage.startsWith(path);
+
   const handleNavigation = (path) => {
     setActivePage(path);
     navigate(path);
   };
 
-  const isPageActive = (path) => path === activePage;
-
   return (
     <nav className="nav">
       <div className="nav-upper-options">
-        <div className={`nav-option option3 ${isPageActive('/filter-logs') && 'active'}`} onClick={() => handleNavigation('/filter-logs')}>
+        <div className={`nav-option option3 ${isPartOfActivePage('/scanned') && 'active'}`} onClick={() => handleNavigation('/scanned')}>
           <FontAwesomeIcon icon={faFilter} className="nav-img" alt="filter" />
-          <h3> Filter Logs</h3>
+          <h3> Filter Scans</h3>
         </div>
-        <div className={`nav-option option1 ${isPageActive('/dashboard') && 'active'}`} onClick={() => handleNavigation('/dashboard')}>
+        <div className={`nav-option option1 ${isPartOfActivePage('/dashboard') && 'active'}`} onClick={() => handleNavigation('/scanned')}>
           <FontAwesomeIcon icon={faHome} className="nav-img" alt="dashboard" />
           <h3> Dashboard</h3>
         </div>
-
-        <div className={`nav-option option4 ${isPageActive('/alerts') && 'active'}`} onClick={() => handleNavigation('/alerts')}>
-          <FontAwesomeIcon icon={faBell} className="nav-img" alt="alerts" />
-          <h3> Alerts</h3>
-        </div>
-
       </div>
     </nav>
   );

@@ -1,0 +1,12 @@
+.dashboard-container{
+    padding-left: 300px;
+    padding-right: 10%;
+    padding-top: 90px;
+}
+.content{
+    margin-left: 20px;
+}
+.dash-button {
+    width: fit-content;
+    padding: 5px 10px;
+}

@@ -9,7 +9,7 @@ function Header() {
 
   const navigate = useNavigate();
   const handleHomeNav = () => {
-    navigate('/dashboard');
+    navigate('/newscan');
   }
   const handleNewScan = () => {
     navigate('/newscan');

@@ -11,9 +11,6 @@ const NewScan = () => {
     const [configureState, setConfigureState] = useState('req-data');
     const [selectedReqData, setSelectedReqData] = useState([]);
     const [selectedModules, setSelectedModules] = useState([]);
-    const handleConfigureClick = (state) => {
-        setConfigureState(state);
-    };
     const [scanName, setScanName] = useState('');
     const [scanTarget, setScanTarget] = useState('');
     const navigate = useNavigate();
@@ -34,6 +31,10 @@ const NewScan = () => {
         { id: 'spiderFoot', label: 'SpiderFoot', desc: 'Conduct open-source intelligence (OSINT) on various sources.' },
         { id: 'newsGathering', label: 'News Gathering', desc: 'Collect recent news articles from various sources.' },
     ];
+    const handleConfigureClick = (state) => {
+        setConfigureState(state);
+    };
+
     const handleReqDataToggle = (reqDataId) => {
         setSelectedReqData((prevSelectedReqData) => {
             if (prevSelectedReqData.includes(reqDataId)) {
@@ -43,6 +44,7 @@ const NewScan = () => {
             }
         });
     };
+
     const handleModulesToggle = (modulesId) => {
         setSelectedModules((prevSelectedModules) => {
             if (prevSelectedModules.includes(modulesId)) {
@@ -52,6 +54,7 @@ const NewScan = () => {
             }
         });
     };
+
     const handleSelectAll = (dataIds) => {
         if (configureState === 'req-data') {
             setSelectedReqData(dataIds);
@@ -67,26 +70,43 @@ const NewScan = () => {
             setSelectedModules([]);
         }
     };
-    const handleScanClick = () => {
-        console.log('Selected Configure State:', configureState);
-        console.log('Selected Use Cases:', selectedReqData);
-        console.log('Selected Configure State:', configureState);
-        console.log('Selected Use Cases:', selectedModules);
+
+    const handleScanClick = async () => {
         if (!scanName.trim()) {
-            toast.error("please enter the name of scan");
+            toast.error('Please enter the name of the scan');
             return;
         }
+
         if (!scanTarget.trim()) {
-            toast.error("please enter scan target");
+            toast.error('Please enter the scan target');
             return;
         }
-        setConfigureState('req-data');
-        setScanName('');
-        setScanTarget('');
-        setSelectedReqData('');
-        setSelectedModules('')
-        navigate('/scanned')
-    }
+
+        try {
+            const response = await fetch('http://localhost:3020/scans', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    scanName,
+                    scanTarget,
+                    selectedReqData,
+                    selectedModules,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to start the scan');
+            }
+
+            toast.success('Scan started successfully');
+            navigate('/scanned');
+        } catch (error) {
+            console.error('Error starting the scan:', error);
+            toast.error('Error starting the scan');
+        }
+    };
     return (
         <div className='newscan-container'>
             <ToastContainer />
@@ -188,7 +208,7 @@ const NewScan = () => {
                                     </div>
                                 </div>
                                 <div className='use-case-options'>
-                                    {reqData.map((reqDataItem) => (
+                                    {   reqData.map((reqDataItem) => (
                                         <div style={{ display: "Flex", flexDirection: "row", marginBottom: "10px" }}>
                                             <div key={reqDataItem.id} className='scan-configure-option'
                                                 id={reqDataItem.id}

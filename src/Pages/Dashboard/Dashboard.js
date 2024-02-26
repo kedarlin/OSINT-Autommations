@@ -1,107 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../Components/Header/Header';
 import Sidebar from '../../Components/Sidebar/Sidebar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard, faServer, faShieldAlt, faDesktop } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import '../../index.css';
+import { useParams } from 'react-router-dom';
+import './Dashboard.css';
 
+function SocialMediaDataDisplay({ socialMediaData }) {
+  // Check if socialMediaData is an array before mapping over it
+  console.log(socialMediaData);
+  if (!Array.isArray(socialMediaData)) {
+    return <p className='content-dashboard'>No social media data available.</p>;
+  }
+
+  return (
+    <table className='social-media-data-dashboard'>
+      <thead>
+        <tr>
+          <th className='title-dashboard'>Site</th>
+          <th className='title-dashboard'>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        {socialMediaData.map((item, index) => (
+          <tr key={index}>
+            <td className='title-dashboard'><b>{item.site}</b></td>
+            <td className='title-dashboard'><i>{item.url}</i></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
 
 function Dashboard() {
+  const [socialMediaData, setSocialMediaData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const id = useParams();
+  const userid = id.userid;
+
+  const handleButtonClick = () => {
+    setIsLoading(true);
+
+    // Replace this link with your actual API endpoint
+    const apiUrl = `http://localhost:3020/user/${userid}`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const extractedData = data[0]?.data || '{}';
+        const jsonData = JSON.parse(extractedData);
+
+        // Extract socialMediaAnalyzer data
+        const socialMediaAnalyzerData = JSON.parse(jsonData.socialMediaAnalyzer || '[]');
+
+        setSocialMediaData(socialMediaAnalyzerData);
+      })
+      .catch(error => {
+        console.error('Error fetching social media data:', error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <div>
       <Header />
-      <div style={{ display: 'flex' }}>
-        <Sidebar />
-        <div className="main">
-
-          <div className="box-container">
-            <div className="box box1">
-              <div className="text">
-                <h2 className="topic-heading">60.5k</h2>
-                <h2 className="topic">No Of Logs</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faClipboard} className="icon" alt="No Of Logs" />
-            </div>
-
-            <div className="box box2">
-              <div className="text">
-                <h2 className="topic-heading">150</h2>
-                <h2 className="topic">Systems Online</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faServer} className="icon" alt="Systems Online" />
-            </div>
-
-            <div className="box box3">
-              <div className="text">
-                <h2 className="topic-heading">320</h2>
-                <h2 className="topic">Systems Offline</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faServer} className="icon" alt="Systems Offline" />
-            </div>
-
-            <div className="box box4">
-              <div className="text">
-                <h2 className="topic-heading">70</h2>
-                <h2 className="topic">Systems Down</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faServer} className="icon" alt="Systems Down" />
-            </div>
-            <div className="box box5">
-              <div className="text">
-                <h2 className="topic-heading">9</h2>
-                <h2 className="topic">Threat Detections</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faShieldAlt} className="icon" alt="Threat Detections" />
-            </div>
-            <div className="box box5">
-              <div className="text">
-                <h2 className="topic-heading">142</h2>
-                <h2 className="topic">No Of Desktops</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faDesktop} className="icon" alt="No Of Desktops" />
-            </div>
-            <div className="box box6">
-              <div className="text">
-                <h2 className="topic-heading">9</h2>
-                <h2 className="topic">Contained Systems</h2>
-              </div>
-
-              <FontAwesomeIcon icon={faDesktop} className="icon" alt="No Of Desktops" />
-            </div>
-          </div>
-
-          <div className="report-container">
-            <div className="report-header">
-              <h1 className="recent-Articles">Service Devices</h1>
-              <button className="view">View All</button>
-            </div>
-
-            <div className="report-body">
-              <div className="report-topic-heading">
-                <h3 className="t-op">Device Names</h3>
-                <h3 className="t-op">Threats</h3>
-                <h3 className="t-op">Run Time</h3>
-                <h3 className="t-op">Status</h3>
-              </div>
-
-              <div className="items">
-                <div className="item1">
-                  <h3 className="t-op-nextlvl">Article 73</h3>
-                  <h3 className="t-op-nextlvl">2.9k</h3>
-                  <h3 className="t-op-nextlvl">210</h3>
-                  <h3 className="t-op-nextlvl label-tag">Published</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+      <Sidebar />
+      <div className='dashboard-container'>
+        <div className='social-media-dashboard'>
+          <h2 className='title-dashboard'><b>Social Media Search</b></h2>
+          <p className='content-dashboard' onClick={handleButtonClick}>Analyze social media platforms for relevant information.</p>
+          {isLoading ? (
+            <p className='content-dashboard'>Loading social media data...</p>
+          ) : (
+            <SocialMediaDataDisplay socialMediaData={socialMediaData} />
+          )}
         </div>
+        {/* ... existing code ... */}
       </div>
     </div>
   );
