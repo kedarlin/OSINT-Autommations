@@ -1,0 +1,117 @@
+{
+    "search-params": {
+        "date": "02/24/2024 03:59:58",
+        "execution-time": 2.8,
+        "sites-number": 10,
+        "username": "kedar"
+    },
+    "sites": [
+        {
+            "app": "Facebook",
+            "error-message": null,
+            "id": 1,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.facebook.com/kedar"
+        },
+        {
+            "app": "YouTube",
+            "error-message": null,
+            "id": 2,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.youtube.com/user/kedar"
+        },
+        {
+            "app": "Twitter",
+            "error-message": null,
+            "id": 3,
+            "metadata": [],
+            "response-status": "403 Forbidden",
+            "status": "NOT FOUND",
+            "url": "https://nitter.net/kedar"
+        },
+        {
+            "app": "Telegram",
+            "error-message": null,
+            "id": 4,
+            "metadata": [
+                {
+                    "key": "Name",
+                    "type": "generic-data",
+                    "value": "Kedar Khaladkar P"
+                }
+            ],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://t.me/kedar"
+        },
+        {
+            "app": "TikTok",
+            "error-message": null,
+            "id": 5,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://www.tiktok.com/@kedar"
+        },
+        {
+            "app": "Tinder",
+            "error-message": null,
+            "id": 6,
+            "metadata": [
+                {
+                    "key": "Name",
+                    "type": "generic-data",
+                    "value": "Kedar"
+                },
+                {
+                    "key": "picture",
+                    "type": "image",
+                    "value": "https://images-ssl.gotinder.com/57622750b71994513e18d64c/640x640_cdab08e5-596b-42b4-9896-9d34f708affb.jpg"
+                }
+            ],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://tinder.com/@kedar"
+        },
+        {
+            "app": "Instagram",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 7,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.instagram.com/kedar"
+        },
+        {
+            "app": "Snapchat",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 53, \"'content='Snapchat' in responseContent and 'Snap Kit' not in responseContent\", 1, 53))",
+            "id": 8,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.snapchat.com/add/kedar"
+        },
+        {
+            "app": "LinkedIn",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 9,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.linkedin.com/in/kedar"
+        },
+        {
+            "app": "Reddit",
+            "error-message": null,
+            "id": 10,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.reddit.com/user/kedar"
+        }
+    ]
+}

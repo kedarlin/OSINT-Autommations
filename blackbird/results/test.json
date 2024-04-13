@@ -1,0 +1,111 @@
+{
+    "search-params": {
+        "date": "02/24/2024 03:33:26",
+        "execution-time": 2.8,
+        "sites-number": 10,
+        "username": "test"
+    },
+    "sites": [
+        {
+            "app": "Facebook",
+            "error-message": null,
+            "id": 1,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.facebook.com/test"
+        },
+        {
+            "app": "YouTube",
+            "error-message": null,
+            "id": 2,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.youtube.com/user/test"
+        },
+        {
+            "app": "Twitter",
+            "error-message": null,
+            "id": 3,
+            "metadata": [],
+            "response-status": "403 Forbidden",
+            "status": "NOT FOUND",
+            "url": "https://nitter.net/test"
+        },
+        {
+            "app": "Telegram",
+            "error-message": null,
+            "id": 4,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://t.me/test"
+        },
+        {
+            "app": "TikTok",
+            "error-message": null,
+            "id": 5,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://www.tiktok.com/@test"
+        },
+        {
+            "app": "Tinder",
+            "error-message": null,
+            "id": 6,
+            "metadata": [
+                {
+                    "key": "Name",
+                    "type": "generic-data",
+                    "value": "Moritz"
+                },
+                {
+                    "key": "picture",
+                    "type": "image",
+                    "value": "https://images-ssl.gotinder.com/55ee0d6e6f95a27a39635642/640x800_9922e4ee-c4fd-47a7-a412-2d9ffd9b6e09.jpg"
+                }
+            ],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://tinder.com/@test"
+        },
+        {
+            "app": "Instagram",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 7,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.instagram.com/test"
+        },
+        {
+            "app": "Snapchat",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 53, \"'content='Snapchat' in responseContent and 'Snap Kit' not in responseContent\", 1, 53))",
+            "id": 8,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.snapchat.com/add/test"
+        },
+        {
+            "app": "LinkedIn",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 9,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.linkedin.com/in/test"
+        },
+        {
+            "app": "Reddit",
+            "error-message": null,
+            "id": 10,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.reddit.com/user/test"
+        }
+    ]
+}

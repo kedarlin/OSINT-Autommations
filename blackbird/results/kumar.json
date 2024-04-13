@@ -1,0 +1,122 @@
+{
+    "search-params": {
+        "date": "02/24/2024 00:06:53",
+        "execution-time": 3.5,
+        "sites-number": 10,
+        "username": "kumar"
+    },
+    "sites": [
+        {
+            "app": "Facebook",
+            "error-message": null,
+            "id": 1,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.facebook.com/kumar"
+        },
+        {
+            "app": "YouTube",
+            "error-message": null,
+            "id": 2,
+            "metadata": [],
+            "response-status": "404 Not Found",
+            "status": "NOT FOUND",
+            "url": "https://www.youtube.com/user/kumar"
+        },
+        {
+            "app": "Twitter",
+            "error-message": null,
+            "id": 3,
+            "metadata": [],
+            "response-status": "403 Forbidden",
+            "status": "NOT FOUND",
+            "url": "https://nitter.net/kumar"
+        },
+        {
+            "app": "Telegram",
+            "error-message": null,
+            "id": 4,
+            "metadata": [
+                {
+                    "key": "Name",
+                    "type": "generic-data",
+                    "value": "Kumar Mehta"
+                },
+                {
+                    "key": "picture",
+                    "type": "image",
+                    "value": "https://cdn5.cdn-telegram.org/file/IP9JZL3kWbB5psXw8mTK9At3KAADmaPgSpme0ZtajX9PKZZpBCG3J5eICHfRM5f0sMSBi5kMRAEIyBh3Op1_ynoe1h9NW_cjkkE_wZDSurmc-vNlYWaj9o49I0FkrPsY34sG08TLYqE3xvhSRkj7KI-MDZniXZU7OSeQCfKYBj7KrS3HZB8zIvm_5mpGkGU8aouo15f8adbLqNDiAuPotCPwTjmJ9HEsnSimVwvVJ6G6bbHNlRA9qe6OpA2GPkTLm1xbDH4ISt4fyrEmpwL2Rtac-xWfMA68k-iZq9FmSd1F-CRWrMN5JrTZz0Qp_twvk3XqWfI4yi2RVWUB-ILpwA.jpg"
+                }
+            ],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://t.me/kumar"
+        },
+        {
+            "app": "TikTok",
+            "error-message": null,
+            "id": 5,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://www.tiktok.com/@kumar"
+        },
+        {
+            "app": "Tinder",
+            "error-message": null,
+            "id": 6,
+            "metadata": [
+                {
+                    "key": "Name",
+                    "type": "generic-data",
+                    "value": "Ashok"
+                },
+                {
+                    "key": "picture",
+                    "type": "image",
+                    "value": "https://images-ssl.gotinder.com/60d8e969242ce30100011dec/640x800_58d942ba-e780-463f-a635-b6a84de89b87.jpg"
+                }
+            ],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://tinder.com/@kumar"
+        },
+        {
+            "app": "Instagram",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 7,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.instagram.com/kumar"
+        },
+        {
+            "app": "Snapchat",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 53, \"'content='Snapchat' in responseContent and 'Snap Kit' not in responseContent\", 1, 53))",
+            "id": 8,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.snapchat.com/add/kumar"
+        },
+        {
+            "app": "LinkedIn",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 9,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.linkedin.com/in/kumar"
+        },
+        {
+            "app": "Reddit",
+            "error-message": null,
+            "id": 10,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.reddit.com/user/kumar"
+        }
+    ]
+}
