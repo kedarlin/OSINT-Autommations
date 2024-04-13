@@ -1,0 +1,100 @@
+{
+    "search-params": {
+        "date": "02/24/2024 01:42:56",
+        "execution-time": 2.7,
+        "sites-number": 10,
+        "username": "harish_abinav"
+    },
+    "sites": [
+        {
+            "app": "Facebook",
+            "error-message": null,
+            "id": 1,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.facebook.com/harish_abinav"
+        },
+        {
+            "app": "YouTube",
+            "error-message": null,
+            "id": 2,
+            "metadata": [],
+            "response-status": "404 Not Found",
+            "status": "NOT FOUND",
+            "url": "https://www.youtube.com/user/harish_abinav"
+        },
+        {
+            "app": "Twitter",
+            "error-message": null,
+            "id": 3,
+            "metadata": [],
+            "response-status": "403 Forbidden",
+            "status": "NOT FOUND",
+            "url": "https://nitter.net/harish_abinav"
+        },
+        {
+            "app": "Telegram",
+            "error-message": null,
+            "id": 4,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://t.me/harish_abinav"
+        },
+        {
+            "app": "TikTok",
+            "error-message": null,
+            "id": 5,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://www.tiktok.com/@harish_abinav"
+        },
+        {
+            "app": "Tinder",
+            "error-message": null,
+            "id": 6,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://tinder.com/@harish_abinav"
+        },
+        {
+            "app": "Instagram",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 7,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.instagram.com/harish_abinav"
+        },
+        {
+            "app": "Snapchat",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 53, \"'content='Snapchat' in responseContent and 'Snap Kit' not in responseContent\", 1, 53))",
+            "id": 8,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.snapchat.com/add/harish_abinav"
+        },
+        {
+            "app": "LinkedIn",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 9,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.linkedin.com/in/harish_abinav"
+        },
+        {
+            "app": "Reddit",
+            "error-message": null,
+            "id": 10,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.reddit.com/user/harish_abinav"
+        }
+    ]
+}

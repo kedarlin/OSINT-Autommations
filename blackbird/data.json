@@ -1,0 +1,230 @@
+{
+  "sites": [
+    {
+      "app": "Facebook",
+      "id": 1,
+      "method": "GET",
+      "url": "https://www.facebook.com/{username}",
+      "valid": "response.status == 200"
+    },
+    {
+      "app": "YouTube",
+      "id": 2,
+      "method": "GET",
+      "url": "https://www.youtube.com/user/{username}",
+      "valid": "response.status == 200 and 'name\" content=' in responseContent"
+    },
+    {
+      "app": "Twitter",
+      "id": 3,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('a', class_='profile-card-fullname')['title']"
+        },
+        {
+          "key": "Bio",
+          "type": "generic-data",
+          "value": "soup.find('div',class_='profile-bio').string"
+        },
+        {
+          "key": "Site",
+          "type": "generic-data",
+          "value": "soup.find('div',class_='profile-website').text.strip('\\t\\r\\n')"
+        },
+        {
+          "key": "Member since",
+          "type": "generic-data",
+          "value": "soup.find('div',class_='profile-joindate').find('span')['title']"
+        },
+        {
+          "key": "picture",
+          "type": "image",
+          "value": "'https://nitter.net'+soup.find('a', class_='profile-card-avatar')['href']"
+        },
+        {
+          "key": "location",
+          "type": "location",
+          "value": "soup.select_one('.profile-location:nth-of-type(2)').text.strip('\\t\\r\\n')"
+        }
+      ],
+      "method": "GET",
+      "url": "https://nitter.net/{username}",
+      "valid": "response.status == 200 and ') | nitter</title>' in responseContent"
+    },
+    {
+      "app": "Telegram",
+      "id": 4,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('span', dir='auto').string"
+        },
+        {
+          "key": "picture",
+          "type": "image",
+          "value": "soup.find('img', class_='tgme_page_photo_image')['src']"
+        }
+      ],
+      "method": "GET",
+      "url": "https://t.me/{username}",
+      "valid": "'You can contact' in soup.find('meta', property='og:description')['content'] and 'tgme_page_title' in responseContent"
+    },
+    {
+      "app": "TikTok",
+      "id": 5,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('h1').text"
+        },
+        {
+          "key": "Bio",
+          "type": "generic-data",
+          "value": "soup.find('h2', attrs={'data-e2e':'user-bio'}).text"
+        },
+        {
+          "key": "picture",
+          "type": "image",
+          "value": "soup.find('img')['src']"
+        }
+      ],
+      "method": "GET",
+      "url": "https://www.tiktok.com/@{username}",
+      "valid": "response.status == 200 and 'title=\"Following\"' in responseContent"
+    },
+    {
+      "app": "Tinder",
+      "id": 6,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('meta', property='profile:first_name')['content']"
+        },
+        {
+          "key": "picture",
+          "type": "image",
+          "value": "soup.find('meta', property='og:image')['content']"
+        }
+      ],
+      "method": "GET",
+      "url": "https://tinder.com/@{username}",
+      "valid": "'@' in soup.find('meta', property='og:title')['content'] and ') | Tinder</title><meta' in responseContent"
+    },
+    {
+      "app": "Instagram",
+      "id": 7,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('h2', class_='profile-name-bottom').string"
+        },
+        {
+          "key": "Bio",
+          "type": "generic-data",
+          "value": "soup.find('div', class_='profile-description').text.strip('\\t\\r\\n')"
+        },
+        {
+          "key": "picture",
+          "type": "image",
+          "value": "soup.find('img', class_='big img').get('src')"
+        },
+        {
+          "key": "external_url",
+          "type": "generic-data",
+          "value": "soup.find('div', class_='public-page-link').find('a')['href']"
+        }
+      ],
+      "method": "GET",
+      "url": "https://www.instagram.com/{username}",
+      "valid": "'content='profile' in responseContent and 'ProfilePage' in responseContent"
+    },
+    {
+      "app": "Snapchat",
+      "id": 8,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('span', class_='css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0').text"
+        },
+        {
+          "key": "Bitmoji",
+          "type": "image",
+          "value": "soup.find('div', class_='r-q4m81j').find('img')['src']"
+        },
+        {
+          "key": "Score",
+          "type": "generic-data",
+          "value": "soup.find('span', class_='css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0').text"
+        }
+      ],
+      "method": "GET",
+      "url": "https://www.snapchat.com/add/{username}",
+      "valid": "'content='Snapchat' in responseContent and 'Snap Kit' not in responseContent"
+    },
+    {
+      "app": "LinkedIn",
+      "id": 9,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('h1', class_='text-heading-xlarge inline t-24 v-align-middle break-words').text.strip('\\t\\r\\n')"
+        },
+        {
+          "key": "Headline",
+          "type": "generic-data",
+          "value": "soup.find('h2', class_='text-heading-medium inline t-18 v-align-middle break-words').text.strip('\\t\\r\\n')"
+        },
+        {
+          "key": "Location",
+          "type": "location",
+          "value": "soup.find('li', class_='t-16 t-black t-normal inline-block').text.strip('\\t\\r\\n')"
+        },
+        {
+          "key": "picture",
+          "type": "image",
+          "value": "soup.find('img', class_='pv-top-card-section__photo')['src']"
+        },
+        {
+          "key": "Connections",
+          "type": "generic-data",
+          "value": "soup.find('span', class_='t-bold').text.strip('\\t\\r\\n')"
+        }
+      ],
+      "method": "GET",
+      "url": "https://www.linkedin.com/in/{username}",
+      "valid": "'content='profile' in responseContent and 'ProfilePage' in responseContent"
+    },
+    {
+      "app": "Reddit",
+      "id": 10,
+      "metadata": [
+        {
+          "key": "Name",
+          "type": "generic-data",
+          "value": "soup.find('h1', class_='s1bfvisj-1 ljYeFS')['title']"
+        },
+        {
+          "key": "Bio",
+          "type": "generic-data",
+          "value": "soup.find('div', class_='s1gk5frb-2 cMKkPv').text"
+        },
+        {
+          "key": "Karma",
+          "type": "generic-data",
+          "value": "soup.find('span', class_='s1bfvisj-3 gGIPeZ s13u9rmz-4 hHAFfq').text"
+        }
+      ],
+      "method": "GET",
+      "url": "https://www.reddit.com/user/{username}",
+      "valid": "'You must be 18+ years old to view this community' not in responseContent and 'Sorry, we couldn’t load posts for this page.' not in responseContent"
+    }
+  ]
+}

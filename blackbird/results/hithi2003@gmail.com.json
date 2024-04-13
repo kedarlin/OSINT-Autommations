@@ -1,0 +1,100 @@
+{
+    "search-params": {
+        "date": "02/24/2024 08:16:42",
+        "execution-time": 2.6,
+        "sites-number": 10,
+        "username": "hithi2003@gmail.com"
+    },
+    "sites": [
+        {
+            "app": "Facebook",
+            "error-message": null,
+            "id": 1,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.facebook.com/hithi2003@gmail.com"
+        },
+        {
+            "app": "YouTube",
+            "error-message": null,
+            "id": 2,
+            "metadata": [],
+            "response-status": "404 Not Found",
+            "status": "NOT FOUND",
+            "url": "https://www.youtube.com/user/hithi2003@gmail.com"
+        },
+        {
+            "app": "Twitter",
+            "error-message": null,
+            "id": 3,
+            "metadata": [],
+            "response-status": "403 Forbidden",
+            "status": "NOT FOUND",
+            "url": "https://nitter.net/hithi2003@gmail.com"
+        },
+        {
+            "app": "Telegram",
+            "error-message": null,
+            "id": 4,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://t.me/hithi2003@gmail.com"
+        },
+        {
+            "app": "TikTok",
+            "error-message": null,
+            "id": 5,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://www.tiktok.com/@hithi2003@gmail.com"
+        },
+        {
+            "app": "Tinder",
+            "error-message": null,
+            "id": 6,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "NOT FOUND",
+            "url": "https://tinder.com/@hithi2003@gmail.com"
+        },
+        {
+            "app": "Instagram",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 7,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.instagram.com/hithi2003@gmail.com"
+        },
+        {
+            "app": "Snapchat",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 53, \"'content='Snapchat' in responseContent and 'Snap Kit' not in responseContent\", 1, 53))",
+            "id": 8,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.snapchat.com/add/hithi2003@gmail.com"
+        },
+        {
+            "app": "LinkedIn",
+            "error-message": "SyntaxError('unterminated string literal (detected at line 1)', ('<string>', 1, 55, \"'content='profile' in responseContent and 'ProfilePage' in responseContent\", 1, 55))",
+            "id": 9,
+            "metadata": [],
+            "response-status": null,
+            "status": "ERROR",
+            "url": "https://www.linkedin.com/in/hithi2003@gmail.com"
+        },
+        {
+            "app": "Reddit",
+            "error-message": null,
+            "id": 10,
+            "metadata": [],
+            "response-status": "200 OK",
+            "status": "FOUND",
+            "url": "https://www.reddit.com/user/hithi2003@gmail.com"
+        }
+    ]
+}
