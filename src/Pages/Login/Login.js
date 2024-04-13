@@ -54,7 +54,7 @@ const Login = ({ history }) => {
     //   // Handle other roles or redirect to a default dashboard
     //   console.log('Redirecting to the default dashboard');
     // }
-    navigate('/dashboard');
+    navigate('/newscan');
   };
 
   return (

@@ -1,44 +1,106 @@
 .scanned-container {
-    padding-left: 290px;
+    padding-left: 300px;
     padding-right: 10%;
     padding-top: 90px;
 }
+
 .scanned-title {
     font-size: 30px;
     font-weight: 400;
     margin: 0 0 20px 10px;
 }
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .scanned-filter {
     margin-bottom: 30px;
     padding: 5px 10px;
     border: 1px solid #9b9a9a;
     width: fit-content;
+    border-radius: 5px;
 }
+
 .filter-options {
     border: none;
     background-color: #dce5fd;
     padding-right: 25px;
 }
 
-.results{
+.results {
     padding-top: 50px;
+    background-color: #f7f7f7;
+    width: 100%;
 }
-th{
-    padding-right: 100px;
-    padding-bottom: 10px;
+
+.results th {
+    padding: 5px 10px;
     text-align: center;
 }
-td{
-    padding-bottom: 10px;
+
+.results td {
+    padding: 10px 15px;
     text-align: center;
 }
-table,th,td{
-    border: 2px solid #454545;
+
+table,
+th,
+td {
+    padding: 10px;
+    border: 2px solid #c1bfbfa3;
     border-collapse: collapse;
+    font-size:12px;
 }
-.form{
-    padding-bottom: 10px;
+
+.scanned-other-oper {
+    display:flex;
+    flex-direction: row;
 }
-table{
-    border-collapse: collapse;
+
+.refresh {
+    width: 100%;
+    background-color: rgba(64, 195, 64, 0.847);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 20px 15px;
+}
+
+.download {
+    width: 100%;
+    background-color: rgba(64, 195, 64, 0.847);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 20px 0px;
+}
+
+.table-name{
+  color: rgba(68, 68, 192, 0.815);
+}
+
+.table-name:hover{
+  color:rgba(77, 77, 185, 0.937);
+  cursor:pointer;
+  text-decoration: underline;
+}
+.action-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-delete{
+    color:  rgba(255, 43, 43, 0.868);
+    cursor: pointer;
+    padding: 5px;
+}
+.action-rerun {
+  color:  rgba(43, 160, 255, 0.868);
+  cursor: pointer;
+  padding: 5px;
 }

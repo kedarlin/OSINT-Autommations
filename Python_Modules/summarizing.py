@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 def get_news_data(api_key):
-    api_url = f'https://newsapi.org/v2/everything?q=apple&from=2024-01-24&sortBy=popularity&apiKey={api_key}'
+    api_url = f'https://newsapi.org/v2/everything?q=Modi&from=2024-01-30&sortBy=popularity&apiKey={api_key}'
     response = requests.get(api_url)
     print(response.content)
     if response.status_code == 200:
@@ -57,4 +57,4 @@ async def summarize_route():
         return jsonify({'error': f'An error occurred: {str(e)}'})
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5005)

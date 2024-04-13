@@ -3,7 +3,7 @@ const axios = require('axios');
 const cors = require('cors'); // Add this line
 
 const app = express();
-const port = 3001;
+const port = 3010;
 
 app.use(express.json());
 app.use(cors()); // Add this line to enable CORS

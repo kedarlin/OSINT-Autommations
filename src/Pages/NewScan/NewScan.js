@@ -11,9 +11,6 @@ const NewScan = () => {
     const [configureState, setConfigureState] = useState('req-data');
     const [selectedReqData, setSelectedReqData] = useState([]);
     const [selectedModules, setSelectedModules] = useState([]);
-    const handleConfigureClick = (state) => {
-        setConfigureState(state);
-    };
     const [scanName, setScanName] = useState('');
     const [scanTarget, setScanTarget] = useState('');
     const navigate = useNavigate();
@@ -34,6 +31,10 @@ const NewScan = () => {
         { id: 'spiderFoot', label: 'SpiderFoot', desc: 'Conduct open-source intelligence (OSINT) on various sources.' },
         { id: 'newsGathering', label: 'News Gathering', desc: 'Collect recent news articles from various sources.' },
     ];
+    const handleConfigureClick = (state) => {
+        setConfigureState(state);
+    };
+
     const handleReqDataToggle = (reqDataId) => {
         setSelectedReqData((prevSelectedReqData) => {
             if (prevSelectedReqData.includes(reqDataId)) {
@@ -43,6 +44,7 @@ const NewScan = () => {
             }
         });
     };
+
     const handleModulesToggle = (modulesId) => {
         setSelectedModules((prevSelectedModules) => {
             if (prevSelectedModules.includes(modulesId)) {
@@ -52,6 +54,7 @@ const NewScan = () => {
             }
         });
     };
+
     const handleSelectAll = (dataIds) => {
         if (configureState === 'req-data') {
             setSelectedReqData(dataIds);
@@ -67,26 +70,43 @@ const NewScan = () => {
             setSelectedModules([]);
         }
     };
-    const handleScanClick = () => {
-        console.log('Selected Configure State:', configureState);
-        console.log('Selected Use Cases:', selectedReqData);
-        console.log('Selected Configure State:', configureState);
-        console.log('Selected Use Cases:', selectedModules);
+
+    const handleScanClick = async () => {
         if (!scanName.trim()) {
-            toast.error("please enter the name of scan");
+            toast.error('Please enter the name of the scan');
             return;
         }
+
         if (!scanTarget.trim()) {
-            toast.error("please enter scan target");
+            toast.error('Please enter the scan target');
             return;
         }
-        setConfigureState('req-data');
-        setScanName('');
-        setScanTarget('');
-        setSelectedReqData('');
-        setSelectedModules('')
-        navigate('/scanned')
-    }
+
+        try {
+            const response = await fetch('http://localhost:3020/scans', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    scanName,
+                    scanTarget,
+                    selectedReqData,
+                    selectedModules,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to start the scan');
+            }
+
+            toast.success('Scan started successfully');
+            navigate('/scanned');
+        } catch (error) {
+            console.error('Error starting the scan:', error);
+            toast.error('Error starting the scan');
+        }
+    };
     return (
         <div className='newscan-container'>
             <ToastContainer />
@@ -96,7 +116,6 @@ const NewScan = () => {
                 <div className='newscan-inputs'>
                     <div className='newscan-input-name'>
                         <label className='newscan-input-label'>Scan Name</label>
-                        <br />
                         <input
                             className='newscan-input'
                             name='scanName'
@@ -104,9 +123,7 @@ const NewScan = () => {
                             placeholder='The name of the scan'
                             value={scanName}
                             onChange={(e) => setScanName(e.target.value)} />
-                        <br />
                         <label className='newscan-input-label'>Scan Target</label>
-                        <br />
                         <input
                             className='newscan-input'
                             name='scanName'
@@ -123,7 +140,7 @@ const NewScan = () => {
                             Your scan target may be one of the following We will automatically detect the target type based on the format of your input:
                         </div>
                         <div className='tables-container'>
-                            <div className='table'>
+                            <div className='newscan-table'>
                                 <p><b>Domain Name:</b> e.g. example.com</p>
                                 <p><b>IPv4 Address:</b> e.g. 1.2.3.4</p>
                                 <p><b>IPv6 Address:</b> e.g. 2606:4700:4700:1111</p>
@@ -131,7 +148,7 @@ const NewScan = () => {
                                 <p><b>Subnet:</b> e.g. 1.2.3.0/24</p>
                                 <p><b>Bitcoin Address:</b> e.g. 1HesYJSP1QqcyPEjnQ9vzBL1wujruNGe7R</p>
                             </div>
-                            <div className='table'>
+                            <div className='newscan-table'>
                                 <p><b>E-Mail address:</b> e.g. bob@example.com</p>
                                 <p><b>Phone Number:</b> e.g. +12345678901 (E.164 format)</p>
                                 <p><b>Human Name:</b> e.g. "John Smith" (must be in quotes)</p>
@@ -191,7 +208,7 @@ const NewScan = () => {
                                     </div>
                                 </div>
                                 <div className='use-case-options'>
-                                    {reqData.map((reqDataItem) => (
+                                    {   reqData.map((reqDataItem) => (
                                         <div style={{ display: "Flex", flexDirection: "row", marginBottom: "10px" }}>
                                             <div key={reqDataItem.id} className='scan-configure-option'
                                                 id={reqDataItem.id}
